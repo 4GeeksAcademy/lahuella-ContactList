@@ -33,7 +33,7 @@ const EditContact = () => {
                 </div>
             </form>
 
-            <Link to="/"><a>volver a Contacts</a></Link>
+            <Link to="/"><a>Return to Contacts</a></Link>
         </div>
     )
 }

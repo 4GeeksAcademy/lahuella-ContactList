@@ -10,7 +10,7 @@ const Contacts = () => {
     }, []);
 
     return (
-        <div className="w-75 mx-auto">
+        <div className="w-75 mx-auto mt-4">
             <div className="d-flex justify-content-end">
                 <Link to="/AddContact">
                     <button className="btn btn-success">Add New contact</button>

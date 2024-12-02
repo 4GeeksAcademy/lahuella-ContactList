@@ -6,18 +6,17 @@ import { Context } from "../store/appContext.js";
 const AddContact = () => {
 
     const { store, actions } = useContext(Context)
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     const { id } = useParams();
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
 
-    function createContact (e) {
+    function SaveContact (e) {
         e.preventDefault()
         if (name.trim() == "" || phone.trim() == "" || email.trim() == "" || address.trim() == "") {
             alert("Empty fields")
-            return null
         }
         const payload = {
             name: name,
@@ -30,13 +29,12 @@ const AddContact = () => {
         } else {
             actions.editContact(id, payload)
         }
-        alert("Se grabo los datos del contacto");
+        alert("Contact created");
         navigate("/");
         setName("");
         setPhone("");
         setEmail(""),
         setAddress("");
-
     }
 
     useEffect(() => {
@@ -51,14 +49,13 @@ const AddContact = () => {
 
     return (
         <div className="container">
-            <h1 className="text-center">{!id ? "Add a New Contact" : `Editing Contact: ${name}`}</h1>
+            <h1 className="text-center">{"Add a New Contact"}</h1>
 
-            <form className="container" onSubmit={createContact }>
+            <form className="container" onSubmit={SaveContact }>
 
                 <div className="mb-3">
                     <label htmlFor="formGroupExampleInput1" className="form-label">Full Name</label>
                     <input type="text" className="form-control" id="formGroupExampleInput1" placeholder="Full name" onChange={(e) => setName(e.target.value)} value={name} required />
-
                 </div>
                 <div className="mb-3">
                     <label htmlFor="formGroupExampleInput2" className="form-label">Email</label>

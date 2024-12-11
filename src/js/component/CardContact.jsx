@@ -73,35 +73,35 @@ const CardContact = ({ contact }) => {
                 </div>
                 <div className="col-md-3 d-flex justify-content-end">
                     {isEditing ? (
-                        <>
+                        <div className="btn-container-save">
                             <button
-                                className="btn btn-success me-2"
+                                className="btn btn-save me-2"
                                 onClick={handleSave}
                             >
                                 Save
                             </button>
                             <button
-                                className="btn btn-secondary"
+                                className="btn btn-cancel"
                                 onClick={() => setIsEditing(false)}
                             >
-                                Cancel
+                                Back
                             </button>
-                        </>
+                        </div>
                     ) : (
-                        <>
+                        <div className="btn-container me-2">
                             <button
-                                className="btn btn-primary me-2"
+                                className="btn btn-edit"
                                 onClick={() => setIsEditing(true)}
                             >
                                 Edit
                             </button>
                             <button
-                                className="btn btn-danger me-3"
+                                className="btn btn-delete"
                                 onClick={() => actions.deleteContact(contact.id)}
                             >
                                 Delete
                             </button>
-                        </>
+                        </div>
                     )}
                 </div>
             </div>
